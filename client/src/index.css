@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 46.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 4.9%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(160, 84%, 39%);
+  --secondary-foreground: hsl(160, 84%, 10%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 84%, 4.9%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(207, 90%, 54%);
+  --radius: 0.75rem;
+  
+  /* Custom colors for the educational theme */
+  --educational-primary: hsl(207, 90%, 54%);
+  --educational-primary-light: hsl(207, 90%, 84%);
+  --educational-secondary: hsl(160, 84%, 39%);
+  --educational-secondary-light: hsl(160, 84%, 89%);
+  --educational-accent: hsl(0, 84%, 60%);
+  --educational-accent-light: hsl(0, 84%, 90%);
+  --slate-50: hsl(210, 40%, 98%);
+  --slate-100: hsl(210, 40%, 96%);
+  --slate-200: hsl(214, 32%, 91%);
+  --slate-300: hsl(213, 27%, 84%);
+  --slate-600: hsl(215, 16%, 46.9%);
+  --slate-700: hsl(215, 25%, 26.7%);
+  --slate-900: hsl(222, 84%, 4.9%);
+}
+
+.dark {
+  --background: hsl(222, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 17%);
+  --muted-foreground: hsl(215, 16%, 46.9%);
+  --popover: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 32%, 17%);
+  --input: hsl(217, 32%, 17%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(222, 84%, 4.9%);
+  --secondary: hsl(160, 84%, 39%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217, 32%, 17%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(207, 90%, 54%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .educational-gradient {
+    background: linear-gradient(135deg, var(--educational-primary-light), var(--educational-secondary-light));
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(207, 90%, 96%), hsl(160, 84%, 94%));
+  }
+  
+  .educational-card {
+    @apply bg-card border border-border rounded-xl shadow-sm transition-shadow hover:shadow-md;
+  }
+  
+  .stat-card {
+    @apply bg-slate-50 dark:bg-slate-800 rounded-lg p-4 text-center transition-colors;
+  }
+  
+  .search-input {
+    @apply w-full pl-10 pr-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-ring transition-colors bg-background;
+  }
+  
+  .municipality-result {
+    @apply w-full text-left p-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors border border-transparent hover:border-slate-300;
+  }
+}
+
+/* Loading animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for better accessibility */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
