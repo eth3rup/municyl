@@ -1,22 +1,20 @@
-# Municyl (Vercel)
 
-Proyecto adaptado para funcionar íntegramente en **Vercel**:
-- Frontend Vite (en `client/`).
-- Endpoints `/api/*` como **Funciones Serverless** (sin Express).
+# Municyl — Vercel Only
 
-## Despliegue en Vercel
+Proyecto adaptado para ejecutarse íntegramente en Vercel:
+
+- Frontend Vite en la raíz (build a `dist/`).
+- Funciones Serverless en `/api/*` que reemplazan el Express original.
+- Datos locales en `/data/*`.
+- Código compartido reutilizado en `api/_lib/*` y `shared/*`.
+
+## Despliegue
 
 1. Sube este repo a GitHub.
-2. En Vercel → *New Project* → importa el repo.
-3. Framework: **Vite**.
-4. **Build Command**: `npm run build`
-5. **Output Directory**: `dist`
-6. Deploy.
-
-Las rutas de SPA están cubiertas por `vercel.json`. El front llama a `/api/*` igual que antes.
-
-## Desarrollo local
-
-- Front: `npm run dev` (Vite en http://localhost:5173)
-- API local: usa `vercel dev` si quieres simular funciones.
+2. En Vercel: New Project → importa el repo.
+3. Ajustes:
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Root Directory: (raíz del repo)
+4. Deploy.
 

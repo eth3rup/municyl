@@ -1,13 +1,14 @@
-
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { dataService } from './_lib/index';
+import dataService from './_lib/dataService';
 
-export default async function handler(_req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'GET') return res.status(405).json({ error: 'Method Not Allowed' });
   try {
     await dataService.initializeData();
-    const stats = await dataService.getDataStats();
-    res.status(200).json(stats);
-  } catch (error: any) {
-    res.status(500).json({ message: error?.message || 'Failed to get statistics' });
+    const stats = dataService.getStats();
+    return res.status(200).json(stats);
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 }

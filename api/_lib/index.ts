@@ -1,8 +1,3 @@
-
-import dataServiceInstance from './dataService';
-import { openDataApiService } from './openDataApiService';
-import { storage } from './storage';
-
-export const dataService = dataServiceInstance;
-export const openData = openDataApiService;
-export const cache = storage;
+export * from './openDataApiService';
+export { default as dataService } from './dataService';
+export * from './storage';
