@@ -1,4 +1,4 @@
-import { Municipality, MunicipalityData, SearchParams, Demographics, Education, Services, Economy, EducationCenter, HealthCenter } from "../../shared/schema";
+import { Municipality, MunicipalityData, SearchParams, Demographics, Education, Services, Economy, EducationCenter, HealthCenter } from "./shared/schema";
 
 /**
  * Service for interacting with Junta de Castilla y León Open Data API

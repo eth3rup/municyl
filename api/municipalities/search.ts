@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { ZodError } from 'zod';
-import { searchParamsSchema, type SearchResponse, type MunicipalityDetailsResponse } from '../../shared/schema';
+import { searchParamsSchema, type SearchResponse, type MunicipalityDetailsResponse } from '../_lib/shared/schema';
 import dataService from '../_lib/dataService';
 import { OpenDataApiService } from '../_lib/openDataApiService';
 import { storage } from '../_lib/storage';

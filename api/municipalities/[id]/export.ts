@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { z } from 'zod';
-import { MunicipalityDetails } from '../../../shared/schema';
+import { MunicipalityDetails } from '../../_lib/shared/schema';
 import dataService from '../../_lib/dataService';
 import { OpenDataApiService } from '../../_lib/openDataApiService';
 
